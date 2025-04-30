@@ -10,7 +10,7 @@ import { Strategy as GoogleStrategy } from "passport-google-oauth20"
 import findOrCreate from "mongoose-findorcreate"
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.set("view engine", "ejs")
 app.use(express.static("public"))
@@ -26,7 +26,15 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-mongoose.connect("mongodb://127.0.0.1:27017/lexify")
+mongoose.connect(process.env.MONGO_URI)
+    .then(()=>{
+    console.log("Atlas Connected Successfully");
+    app.listen(port, () => {
+        console.log("App running on port", port)
+    })
+}).catch((err)=>{
+    console.error("Mongo Connection Error",err);
+})
 
 const clientSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
@@ -356,8 +364,6 @@ app.get("/logout",(req,res)=>{
     })
 })
 
-app.listen(port, () => {
-    console.log("App running on port", port)
-})
+
 
 
