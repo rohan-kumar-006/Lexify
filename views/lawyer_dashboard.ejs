@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #cbeff1;
+        }
+
+        .nav {
+            padding: 10px;
+            height: 30px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #006A71;
+            color: white;
+            position: sticky;
+            z-index: 1;
+            top: 0px;
+        }
+
+        .nav img {
+            margin-top: 4px;
+            border-radius: 5px;
+        }
+        .nav .logout{
+            position: absolute;
+            right: 5vw;
+            top: 1vh;
+            border: 3px solid #ffffff;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .profile-container {
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            /* height: 25vh; */
+            width: 100vw;
+            border: 2px solid black;
+        }
+
+        .profile {
+            padding: 10px 20px;
+            display: flex;
+            /* border: 2px solid red; */
+            border-radius: 8px;
+            background-color: rgb(204, 225, 214);
+            border: 3px solid #486467;
+            margin: 2vh 5vw;
+            gap: 15px;
+        }
+
+        .profile img {
+            width: 80px;
+        }
+
+        .profile .details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .profile .details .name {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .profile .details .email {
+            color: grey;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* align-items: center; */
+            margin: 10px 0px;
+        }
+
+        .card-container h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .card-container .card {
+            margin: 0 5vw;
+            padding: 10px;
+            width: 80%;
+            border: 3px solid #486467;
+            border-radius: 10px;
+            background: #87c4b5;
+background: linear-gradient(90deg, rgba(135, 196, 181, 0.88) 0%, rgba(34, 152, 161, 0.48) 100%);
+            box-shadow: 7px 7px 20px 0px #8ca7aa;
+        }
+
+
+        .profile_name_time {
+            display: flex;
+            gap: 15px;
+            margin: 20px;
+            /* justify-content: center; */
+            align-items: center;
+        }
+
+        .profile_name_time .time {
+            color: rgb(15, 51, 169);
+        }
+
+        .profile_client img {
+            width: 50px;
+        }
+
+        .profile_name h2 {
+            display: inline-block;
+        }
+
+
+        .card-text {
+            margin: 20px;
+        }
+
+        .card-text h2 {
+            margin-bottom: 10px;
+        }
+
+        .card-text p {
+            font-size: 18px;
+        }
+
+        .card-container .category {
+            margin-left: 20px;
+            font-size: 19px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <p><img src="assets/logo2.png" alt="" width="120px"></p>
+        <a href="/logout" style="text-decoration: none; color: white;"><span class="logout">Log Out</span></a>
+    </div>
+    <div class="profile-container">
+        <div class="profile">
+            <div class="profile-image">
+                <img src="assets\user_icons.svg" alt="">
+            </div>
+            <div class="details">
+                <span class="name">
+                    <%= lawyer.name %>
+                </span>
+                <span class="email">
+                    <%= lawyer.username %>
+                </span>
+                <span class="dob"><b>DOB :</b>
+                    <%= JSON.stringify(lawyer.dob).slice(1,11) %>
+                </span>
+                <span class="registration_id"><b>ID : </b>
+                    <%= lawyer.registration_id%>
+                </span>
+                <span class="city"><b>City of Registration : </b>
+                    <%= lawyer.city %>
+                </span>
+                <span class="experience"><b>Year of Experience : </b>
+                    <%= lawyer.experience %>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <h1>Your Questions</h1>
+
+        <% questions.forEach(question=> { %>
+
+            <div class="card">
+                <div class="profile_name_time">
+                    <div class="profile_client">
+                        <img src="/assets/user_icons.svg" alt="">
+                    </div>
+                    <div class="name_time">
+                        <h2><%= question.asked_by.name %></h2>
+                        <% const d1=question.created_at; const d2=Date.now(); const
+                        days=Math.floor(Math.abs((d1-d2)/(60*60*24*1000))); %>
+                        <span class="time">posted <%=days %> days ago</span>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <h2><%= question.question_text %></h2>
+                    <p><%= question.advice.advice_text %> q</p>
+                </div>
+                <div class="category">
+                    <p> <b>Category:</b><%= question.category %> </p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #cbeff1;
+        }
+
+        .nav {
+            padding: 10px;
+            height: 30px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #006A71;
+            color: white;
+            position: sticky;
+            z-index: 1;
+            top: 0px;
+        }
+
+        .nav img {
+            margin-top: 4px;
+            border-radius: 5px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* align-items: center; */
+            margin: 10px 0px;
+            gap: 10px;
+        }
+
+        .card-container h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .card-container .card {
+            margin: 0 5vw;
+            padding: 10px;
+            width: 80%;
+            border: 3px solid #486467;
+            border-radius: 10px;
+            background: #87c4b5;
+            background: linear-gradient(90deg, rgba(135, 196, 181, 0.88) 0%, rgba(34, 152, 161, 0.48) 100%);
+            box-shadow: 7px 7px 20px 0px #8ca7aa;
+        }
+
+        .card-container a {
+            text-decoration: none;
+            color: black;
+        }
+
+
+        .profile_name_time {
+            display: flex;
+            gap: 15px;
+            margin: 20px;
+            /* justify-content: center; */
+            align-items: center;
+        }
+
+        .profile_name_time .time {
+            color: rgb(15, 51, 169);
+        }
+
+        .profile_client img {
+            width: 50px;
+        }
+
+        .profile_name h2 {
+            display: inline-block;
+        }
+
+        .card-text {
+            margin: 20px;
+        }
+
+        .card-text h3 {
+            margin-bottom: 10px;
+        }
+        .category{
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <p><img src="assets/logo2.png" alt="" width="120px"></p>
+    </div>
+    <div class="card-container">
+        <h1>Not Answered</h1>
+        <% data.forEach(element=> { %>
+            <a href= <%=`/post-advice-page?id=${element._id}`%>>
+                <div class="card">
+                    <div class="profile_name_time">
+                        <div class="profile_client">
+                            <img src="/assets/user_icons.svg" alt="">
+                        </div>
+                        <div class="name_time">
+                            <h2>
+                                <%= element.asked_by.name %>
+                            </h2>
+                            <% const d1=element.created_at;
+                            const d2=Date.now();
+                            const days=Math.floor(Math.abs((d1-d2)/(60*60*24*1000))); %>
+                                <p class="time">posted <%=days %> days ago</p>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <h3>
+                            <%= element.question_text %>
+                        </h3>
+                    </div>
+                    <div class="category">
+                        <b>Category: </b><%= element.category %>
+                        
+                    </div>
+                </div>
+            </a>
+
+            <% }); %>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User SignUp</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/auth.css">
+</head>
+
+<body>
+    <div class="form-cover-container">
+        <div class="form-container">
+            <form action="/signup/client" method="post">
+
+                <h1 style="align-self: center; padding-bottom: 10px;">SIGNUP</h1>
+
+                <input type="text" id="name" name="name" placeholder="Full Name">
+                
+                <input type="email" id="username" name="username" placeholder="Email">
+                
+                <input type="password" id="password" name="password" placeholder="Password">
+                
+                <!-- <div class="dob">
+                    <label for="dob">Date of Birth : </label>
+                    <input type="date" id="dob" name="dob">
+                </div> -->
+
+                <input type="submit" class="submit" value="SIGNUP">
+            </form>
+            <div class="oauth">
+                <h3>or SIGNUP with Other</h3>
+                <a href="/auth/google/client" style="text-decoration: none;">
+                    <div class="google">
+                        <img src="/assets/google.svg" alt="">
+                        <span>Signup with Google</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="cover">
+            <img src="\assets\client_auth.png" alt="img">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: roboto;
+
+}
+
+.line {
+    background-color: rgb(91, 89, 89);
+    height: 5px;
+    width: 100%;
+}
+
+.nav {
+    padding: 10px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #006A71;
+    color: white;
+    position: sticky;
+    z-index: 1;
+    top: 0px;
+}
+
+.nav img {
+    margin-top: 4px;
+    border-radius: 5px;
+}
+
+.nav ul {
+    display: flex;
+    gap: 3vw;
+    list-style: none;
+}
+
+.nav .dropdown {
+    border-radius: 4px;
+    height: 20px;
+    border: none;
+}
+
+.hero {
+    /* width: 100%; */
+    background-image: url("assets/hero_home.png");
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    position: relative;
+}
+
+.hero .text {
+    position: absolute;
+    left: 50%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hero .text h1 {
+    color: #006A71;
+}
+
+.hero .text p {
+    font-size: 19px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.card-container .card {
+    margin: 10px;
+    padding: 10px;
+    width: 85%;
+    border: 3px solid #486467;
+    border-radius: 10px;
+    box-shadow: 7px 7px 20px 0px #8ca7aa;
+    background: #87c4b5;
+    background: linear-gradient(90deg, rgba(135, 196, 181, 0.88) 0%, rgba(34, 152, 161, 0.48) 100%);
+}
+
+.profile_name_time {
+    display: flex;
+    gap: 15px;
+    margin: 20px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.profile_name_time .time {
+    color: rgb(15, 51, 169);
+}
+
+.profile img {
+    width: 50px;
+}
+
+.profile_name h2 {
+    display: inline-block;
+}
+
+.card-text {
+    margin: 20px;
+}
+
+.card-text h2 {
+    margin-bottom: 10px;
+}
+
+.card-text p {
+    font-size: 18px;
+}
+
+.card-container .lawyer {
+    margin-left: 20px;
+    font-size: 19px;
+}
+
+.ask-question-button,
+.questions_redirect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #486467;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    position: fixed;
+    right: 6vw;
+    bottom: 7vh;
+    background: #048189;
+    /* color: white; */
+    /* filter: sepia(1); */
+    zoom: 1.15;
+}
+
+.ask-popup,
+.advice-popup {
+    opacity: 0;
+    position: fixed;
+    /* right: 65px; */
+    bottom: 150px;
+    border: 2px solid #486467;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #048189;
+    color: white;
+    transition: opacity 0.2s ease-out;
+
+}
+
+.ask-question-button:hover .ask-popup {
+    opacity: 1;
+}
+
+.questions_redirect:hover .advice-popup {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 550px) {
+    .nav select {
+        font-size: 13px;
+        width: 15vw;
+    }
+
+    .nav select option {
+        font-size: 6px;
+    }
+
+    .hero {
+        height: 250px;
+    }
+}

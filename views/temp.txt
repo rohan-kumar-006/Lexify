@@ -1,0 +1,13 @@
+<!-- <% if(user && user.user_type=="client" ){ %>
+            <a href="/ask_question">
+                <div class="ask-question-button">
+                    <img src="assets/plus.svg" alt="plus">
+                </div>
+            </a>
+        <%}else if(user && user.user_type=="lawyer" ){ %>
+            <a href="/questions">
+                <div class="questions_redirect">
+                    <img src="/assets/questions.svg" alt="plus">
+                </div>
+            </a>
+        <% } %> -->

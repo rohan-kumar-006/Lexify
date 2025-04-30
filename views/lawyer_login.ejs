@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/auth.css">
+    <style>
+        .cover img {
+            width: 50vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
+</head> 
+
+<body>
+    <div class="form-cover-container">
+        <div class="form-container">
+            <form action="/login/lawyer" method="post">
+                <h1 style="align-self: center; padding-bottom: 10px;">LOGIN</h1>
+                <!-- <label for="email">Email</label> -->
+                <input type="email" id="username" name="username" placeholder="Email">
+                <!-- <label for="password">Password</label> -->
+                <input type="password" id="password" name="password" placeholder="Password">
+                <input type="submit" class="submit" value="LOGIN">
+            </form>
+            <div class="oauth">
+                <h3>or LOGIN with Other</h3>
+                <a href="/auth/google/lawyer" style="text-decoration: none;">
+                    <div class="google">
+                        <img src="/assets/google.svg" alt="">
+                        <span>LOGIN with Google</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="cover">
+            <img src="\assets\lawyer_auth.png" alt="img">
+        </div>
+    </div>
+</body>
+
+</html>

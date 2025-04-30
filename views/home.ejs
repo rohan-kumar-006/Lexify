@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div class="nav">
+        <p><img src="/assets/logo2.png" alt="" width="120px"></p>
+        <ul>
+            <a href="/" style="text-decoration: none; color: white;"><li>Home</li></a>
+            <% if(isAuthenticated){ %>
+                <a style="text-decoration: none; color: white;" href=<%=`/${user.user_type}-dashboard`%>>
+                    <li>
+                        <%=user.name %>
+                    </li>
+                </a>
+                <% } else { %>
+                    <li>
+                        <select name="login" id="" class="dropdown select-login">
+                            <option value="" disabled selected>Login</option>
+                            <option value="/login/client">as Client</option>
+                            <option value="/login/lawyer">as Lawyer</option>
+                        </select>   
+                    </li>
+                    <li>
+                        <select name="signup" id="" class="dropdown select-signup">
+                            <option value="" disabled selected><b>Signup</b></option>
+                            <option  value="/signup/client">as Client</option>
+                            <option value="/signup/lawyer">as Lawyer</option>
+                        </select>
+                    </li>
+                    <% } %>
+        </ul>
+    </div>
+    <div class="line">
+    </div>
+    <div class="hero">
+        <span class="text">
+            <h1>Lexify</h1>
+            <p>Facing a legal issue? Ask your question and get advice from real lawyers </p>
+        </span>
+        <!-- <img src="assets\image.jpg" alt="img"> -->
+    </div>
+    <div class="line"></div>
+    <div class="card-container">
+
+        <% questions.forEach(question=> { %>
+            <div class="card">
+                <div class="profile_name_time">
+                    <div class="profile">
+                        <img src="/assets/user_icons.svg" alt="">
+                    </div>
+                    <div class="name_time">
+                        <h2>
+                            <%= question.asked_by.name %>
+                        </h2>
+                        <% const d1=question.created_at; const d2=Date.now(); const
+                            days=Math.floor(Math.abs((d1-d2)/(60*60*24*1000))); %>
+                            <span class="time">posted <%=days %> days ago</span>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <h2>
+                        <%= question.question_text%>
+                    </h2>
+                    <p>
+                        <%= question.advice.advice_text%>
+                    </p>
+                </div>
+                <div class="lawyer">
+                    <b>
+                        <p>
+                            <%=question.advice.answered_by.name%>
+                        </p>
+                    </b>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    
+    <% if(user && user.user_type=="client" ){ %>
+    <a href="/ask_question">
+        <div class="ask-question-button">
+            <div class="ask-popup">
+                Ask Questions
+            </div>
+            <img src="assets/plus.svg" alt="plus">
+        </div>
+    </a>
+    <%}else if(user && user.user_type=="lawyer" ){ %>
+    <a href="/questions">
+        <div class="questions_redirect">
+            <div class="advice-popup">
+               Give Advice
+            </div>
+            <img src="/assets/questions.svg" alt="plus">
+        </div>
+    </a>
+    <% } %>
+</body>
+<script>
+    console.log(document.getElementsByClassName("select-login")[0])
+    document.getElementsByClassName("select-login")[0].addEventListener('change', (event) => {
+        const selected_route = event.target.value
+        if (selected_route) {
+            window.location.href = selected_route
+        }
+    }
+    )
+    console.log(document.getElementsByClassName("select-signup")[0])
+    document.getElementsByClassName("select-signup")[0].addEventListener('change', (event) => {
+        const selected_route = event.target.value
+        if (selected_route) {
+            window.location.href = selected_route
+        }
+    }
+    )
+</script>
+
+</html>

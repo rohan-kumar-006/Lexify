@@ -1,0 +1,112 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: roboto;
+}
+
+.form-cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    min-height: 100vh;
+    gap: 2rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* width: 50%; */
+    flex: 1;
+    /* width: clamp(320px, 45%, 600px); */
+    max-width: 600px;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.form-container form {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+    /* width: 30%; */
+}
+
+form input {
+    border: none;
+    background-color: #bad4d6;
+    border-radius: 4px;
+    padding: 0 10px;
+    height: 30px;
+    width: 100%;
+    color: gray;
+}
+
+.submit {
+    width: 50%;
+    align-self: center;
+    background-color: #6954f0;
+    color: white;
+    margin: 5px;
+    width: 50%;
+    /* Make submit button responsive */
+}
+
+#dob {
+    width: 204px;
+}
+
+.oauth {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 8px;
+    gap: 8px;
+}
+
+.cover{
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cover img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+
+@media only screen and (max-width : 700px) {
+    .form-cover-container{
+        height: 100vh;
+    }
+    .form-container form {
+        justify-content: center;
+    }
+    .google{
+        font-size: 14px;
+    }
+    .cover{
+        display: none;
+    }
+}
