@@ -122,7 +122,7 @@ passport.deserializeUser(function (user, cb) {
 passport.use("google-client", new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/client/lex",
+    callbackURL: "https://lexify-scfw.onrender.com/auth/google/client/lex",
     scope: ["profile", "email"]
 },
     (accessToken, refreshToken, profile, cb) => {
@@ -143,7 +143,7 @@ passport.use("google-client", new GoogleStrategy({
 passport.use("google-lawyer", new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/lawyer/lex",
+    callbackURL: "https://lexify-scfw.onrender.com/auth/google/lawyer/lex",
     scope: ["profile", "email"]
 },
     async (accessToken, refreshToken, profile, cb) => {
