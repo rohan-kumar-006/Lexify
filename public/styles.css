@@ -32,14 +32,20 @@
 
 .nav ul {
     display: flex;
+    align-items: center;
     gap: 3vw;
     list-style: none;
 }
-.profile-photo img{
-        width: 40px;
-        border-radius: 50px;
-}
 
+.nav ul li a{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.profile-photo img {
+    width: 30px;
+    border-radius: 50px;
+}
 .nav .dropdown {
     border-radius: 4px;
     height: 20px;

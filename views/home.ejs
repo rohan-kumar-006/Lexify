@@ -17,36 +17,40 @@
     <div class="nav">
         <p><img src="/assets/logo2.png" alt="" width="120px"></p>
         <ul>
-            <a href="/" style="text-decoration: none; color: white;"><li>Home</li></a>
+            <a href="/" style="text-decoration: none; color: white;">
+                <li>Home</li>
+            </a>
             <% if(isAuthenticated){ %>
-                <a style="text-decoration: none; color: white;" href=<%=`/${user.user_type}-dashboard`%>>
-                    <li>
-                        <%=user.name %>
+                <li>
+                    <a style="text-decoration: none; color: white;" href=<%=`/${user.user_type}-dashboard`%>>
+                        <div class="name">
+                            <%=user.name %>
+                        </div>
                         <div class="profile-photo">
                             <img src="<%=user.photo%>" alt="profile">
                         </div>
-                    </li>
-                </a>
+                    </a>
+                </li>
                 <% } else { %>
                     <li>
                         <select name="login" id="" class="dropdown select-login">
                             <option value="" disabled selected>Login</option>
                             <option value="/login/client">as Client</option>
                             <option value="/login/lawyer">as Lawyer</option>
-                        </select>   
+                        </select>
                     </li>
                     <li>
                         <select name="signup" id="" class="dropdown select-signup">
                             <option value="" disabled selected><b>Signup</b></option>
-                            <option  value="/signup/client">as Client</option>
+                            <option value="/signup/client">as Client</option>
                             <option value="/signup/lawyer">as Lawyer</option>
                         </select>
                     </li>
                     <% } %>
-                </ul>
-            </div>
-            <div class="line">
-            </div>
+        </ul>
+    </div>
+    <div class="line">
+    </div>
     <div class="hero">
         <span class="text">
             <h1>Lexify</h1>
@@ -90,26 +94,26 @@
             </div>
             <% }) %>
     </div>
-    
+
     <% if(user && user.user_type=="client" ){ %>
-    <a href="/ask_question">
-        <div class="ask-question-button">
-            <div class="ask-popup">
-                Ask Questions
+        <a href="/ask_question">
+            <div class="ask-question-button">
+                <div class="ask-popup">
+                    Ask Questions
+                </div>
+                <img src="assets/plus.svg" alt="plus">
             </div>
-            <img src="assets/plus.svg" alt="plus">
-        </div>
-    </a>
-    <%}else if(user && user.user_type=="lawyer" ){ %>
-    <a href="/questions">
-        <div class="questions_redirect">
-            <div class="advice-popup">
-               Give Advice
-            </div>
-            <img src="/assets/questions.svg" alt="plus">
-        </div>
-    </a>
-    <% } %>
+        </a>
+        <%}else if(user && user.user_type=="lawyer" ){ %>
+            <a href="/questions">
+                <div class="questions_redirect">
+                    <div class="advice-popup">
+                        Give Advice
+                    </div>
+                    <img src="/assets/questions.svg" alt="plus">
+                </div>
+            </a>
+            <% } %>
 </body>
 <script>
     console.log(document.getElementsByClassName("select-login")[0])
