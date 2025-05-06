@@ -21,8 +21,8 @@
             <% if(isAuthenticated){ %>
                 <a style="text-decoration: none; color: white;" href=<%=`/${user.user_type}-dashboard`%>>
                     <li>
-                        <div class="name_photo">
-                            <%=user.name %>
+                        <%=user.name %>
+                        <div class="profile-photo">
                             <img src="<%=user.photo%>" alt="profile">
                         </div>
                     </li>

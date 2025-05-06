@@ -35,8 +35,8 @@
     gap: 3vw;
     list-style: none;
 }
-.name_photo img{
-        width: 80px;
+.profile-photo img{
+        width: 40px;
         border-radius: 50px;
 }
 
