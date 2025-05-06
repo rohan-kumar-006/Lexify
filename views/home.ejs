@@ -21,7 +21,10 @@
             <% if(isAuthenticated){ %>
                 <a style="text-decoration: none; color: white;" href=<%=`/${user.user_type}-dashboard`%>>
                     <li>
-                        <%=user.name %>
+                        <div class="name_photo">
+                            <%=user.name %>
+                            <img src="<%=user.photo%>" alt="profile">
+                        </div>
                     </li>
                 </a>
                 <% } else { %>
@@ -40,10 +43,10 @@
                         </select>
                     </li>
                     <% } %>
-        </ul>
-    </div>
-    <div class="line">
-    </div>
+                </ul>
+            </div>
+            <div class="line">
+            </div>
     <div class="hero">
         <span class="text">
             <h1>Lexify</h1>
@@ -80,7 +83,7 @@
                 <div class="lawyer">
                     <b>
                         <p>
-                            <%=question.advice.answered_by.name%>
+                            Answered By: <%=question.advice.answered_by.name%>
                         </p>
                     </b>
                 </div>

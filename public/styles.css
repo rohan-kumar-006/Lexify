@@ -35,6 +35,10 @@
     gap: 3vw;
     list-style: none;
 }
+.name_photo img{
+        width: 80px;
+        border-radius: 50px;
+}
 
 .nav .dropdown {
     border-radius: 4px;
@@ -166,6 +170,9 @@
 }
 
 @media only screen and (max-width: 550px) {
+    .questions_redirect , .ask-question-button{
+        display: none;
+    }
     .nav select {
         font-size: 13px;
         width: 15vw;
