@@ -176,7 +176,7 @@
 }
 
 @media only screen and (max-width: 550px) {
-    .questions_redirect , .ask-question-button{
+    .ask-popup , .advice-popup{
         display: none;
     }
     .nav select {
