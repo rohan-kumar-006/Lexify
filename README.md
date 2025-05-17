@@ -1,4 +1,4 @@
-![S1](https://github.com/user-attachments/assets/add60dda-65bb-4d06-8c46-22de86002c63)# ⚖️ Lexify – A Legal Q&A Platform
+## ⚖️ Lexify – A Legal Q&A Platform
 
 Lexify is a legal discussion platform that allows users to post their legal queries and get responses from registered lawyers. It's designed to be minimal, easy to use, and accessible to both clients and legal professionals.
 
