@@ -1,4 +1,4 @@
-# ⚖️ Lexify – A Legal Q&A Platform
+![S1](https://github.com/user-attachments/assets/add60dda-65bb-4d06-8c46-22de86002c63)# ⚖️ Lexify – A Legal Q&A Platform
 
 Lexify is a legal discussion platform that allows users to post their legal queries and get responses from registered lawyers. It's designed to be minimal, easy to use, and accessible to both clients and legal professionals.
 
@@ -24,9 +24,16 @@ Fun fact: A seemingly simple idea—displaying the Google profile picture—ende
 - Node.js
 - Express.js
 - Passport.js
-- Google OAuth 2.0
 - MongoDB (with Mongoose)
 - EJS
+
+##🖼️ Demo
+
+![S1](https://github.com/user-attachments/assets/a13474b1-d32b-409d-bede-2608538a226f)
+
+![S2](https://github.com/user-attachments/assets/7d9dcc1d-4c12-41ba-972d-2b075feb4a1b)
+
+![S3](https://github.com/user-attachments/assets/78a0ef3d-2587-41c7-ab61-c7686d6183d3)
 
 ## 🚀 Live Link
 
