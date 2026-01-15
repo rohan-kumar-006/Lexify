@@ -119,6 +119,7 @@ passport.deserializeUser(function (user, cb) {
 
 //Now, the key point is that before the callback of findOrCreate, we didn't actually save the photo data to the database.
 //  Therefore, the photo data will not be saved in the database; it will only exist within the session
+
 passport.use("google-client", new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
